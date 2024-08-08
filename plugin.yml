@@ -1,0 +1,9 @@
+name: Koth-Zephyrhz
+author: Zephyrhz0
+api: 5.0.0
+main: zephy\koth\Loader
+version: 1.0.0
+
+permissions:
+   koth.admin:
+      default: op
