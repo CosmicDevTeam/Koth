@@ -18,16 +18,13 @@ class Koth {
    private ?bool $started = false;
    
    private ?int $time = 60 * 2;
+   
    public function __construct(
       private string $name, 
       private ?Position $firstCorner = null, 
       private ?Position $secondCorner = null, 
-     
       private ?array $rewards = null
-      
-      
       ){
-         
       }
       
    public function getName(): string {
@@ -72,13 +69,16 @@ class Koth {
    public function setCapturer(?string $player = null): void {
       $this->capturer = $player;
       if(!is_null($player)){
+         
           if(CapturerFactory::getInstance()->getCapturer($player) === null){
+             
              CapturerFactory::getInstance()->addCapturer($player, $this);
+             
           }
       } 
    } 
    public function getStatus(): string {
-       return $this->isStarted() ? "§aENABLED" : "§4DISABLED";
+       return $this->isStarted() ? "§aEnabled" : "§4Disabled";
    } 
    public function getAxisAligned(): AxisAlignedBB {
 
@@ -97,8 +97,7 @@ class Koth {
     }
 
     public function inside(?Position $pos = null): bool {
-        
-        return $this->getAxisAligned()->isVectorInside($pos) && $pos->getWorld()->getFolderName() === $this->getSecondCorner()->getWorld()->getFolderName();
+      return $this->getAxisAligned()->isVectorInside($pos) && $pos->getWorld()->getFolderName() === $this->getSecondCorner()->getWorld()->getFolderName();
     }
    
    public function isStarted(): bool {
@@ -119,19 +118,19 @@ class Koth {
        CapturerFactory::getInstance()->unsetAll();
    } 
    public function stop(): void {
+      $this->setStarted(false);
       if($this->getCapturer() !== null){
          if($this->getRewards() !== null){
             $this->getCapturer()->giveReward();
          }
-            
-             Server::getInstance()->broadcastMessage(Loader::PREFIX. "§aKoth {$this->name} get captured by {$this->getCapturer()->getPlayer()->getName()}");
+          Server::getInstance()->broadcastMessage(Loader::PREFIX. "§aKoth {$this->name} get captured by {$this->getCapturer()->getPlayer()->getName()}");
           foreach(Server::getInstance()->getOnlinePlayers() as $player) {
-          Utils::getInstance()->playSound($player, "mob.enderdragon.death");
+                Utils::getInstance()->playSound($player, "mob.enderdragon.death");
           } 
             
          
       }
-       $this->setStarted(false);
+       
        CapturerFactory::getInstance()->unsetAll();
    }
    public function tick(): void {
