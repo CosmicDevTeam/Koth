@@ -15,7 +15,7 @@ use pocketmine\inventory\Inventory;
 class KothCommand extends Command {
    public function __construct(){
       parent::__construct("koth", "Manage KothSystem");
-      $this->setPermission("koth.admin""digamos que no sirve");
+      $this->setPermission("koth.admin");
    }
    
    public function execute(CommandSender $sender, string $commandLabel, array $args) : void {
