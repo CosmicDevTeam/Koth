@@ -22,7 +22,7 @@ class EffectsFilter {
 		   return false;
 		}
 		
-		$add = new EffectInstance($effect, $time, $level);
+		$add = new EffectInstance($effect, $time, $level - 1);
 		$player->getEffects()->add($add);
         return true;
    }
