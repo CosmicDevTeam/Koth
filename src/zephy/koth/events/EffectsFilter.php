@@ -8,7 +8,7 @@ use pocketmine\entity\effect\StringToEffectParser;
 use pocketmine\player\Player;
 
 class EffectsFilter {
-   public static function applyEffect(Player $player, string $name, int $duration = 50, int $level = 1): bool{
+   public static function applyEffect(Player $player, string $name, int $duration = 20, int $level = 1): bool{
       $effect = StringToEffectParser::getInstance()->parse($name);
       $player->sendMessage($name);
                            
