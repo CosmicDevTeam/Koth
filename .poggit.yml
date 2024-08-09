@@ -6,5 +6,5 @@ projects:
   Koth:
     path: ""
     libs:
-      - src: "muqsit/invmenu/InvMenu" 
+      - src: "muqsit/invmenu/InvMenu"
 ...
