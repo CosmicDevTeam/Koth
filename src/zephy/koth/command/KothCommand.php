@@ -91,7 +91,7 @@ class KothCommand extends Command {
              $koth->tick();
              break;
            case "list":
-                if(count(KothFactory::getInstance()->getAll()) <= 0){
+                if(count(KothFactory::getInstance()->getKoths()) <= 0){
                     $sender->sendMessage("§4Theres not koths in database");
                     return;
                 }
