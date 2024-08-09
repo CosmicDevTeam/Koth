@@ -1,0 +1,10 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/CosmicDevTeam/Koth
+build-by-default: true
+branches:
+- main
+projects:
+  Koth:
+    path: ""
+    libs:
+      - src: "muqsit/invmenu/InvMenu" 
+...
