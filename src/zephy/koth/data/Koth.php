@@ -56,8 +56,7 @@ class Koth {
    }
    
    public function getCapturer(): ?Capturer {
-       if($this->capturer === null) return null;
-      return CapturerFactory::getInstance()->getCapturer($this->capturer);
+      return CapturerFactory::getInstance()->getCapturer($this->capturer) ?? null;
    }
    public function setTime(int $time) {
       $this->time = $time;
