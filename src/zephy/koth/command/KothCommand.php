@@ -9,10 +9,15 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use zephy\koth\data\KothFactory;
 use zephy\koth\utils\Utils;
+use zephy\koth\Loader;
 use muqsit\invmenu\InvMenu;
 use muqsit\invmenu\type\InvMenuTypeIds;
 use pocketmine\inventory\Inventory;
-class KothCommand extends Command {
+use pocketmine\plugin\PluginOwned;
+use pocketmine\plugin\Plugin;
+
+
+class KothCommand extends Command implements PluginOwned{
    public function __construct(){
       parent::__construct("koth", "Manage KothSystem");
       $this->setPermission("koth.admin");
@@ -155,4 +160,7 @@ $player->sendMessage("§aItems placed successfully");
          
         }
    }
+   public function getPluginOwned() : Plugin{
+        return Loader::getInstance();
+    } 
 }
