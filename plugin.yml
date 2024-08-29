@@ -5,5 +5,5 @@ main: zephy\koth\Loader
 version: 1.0.0
 
 permissions:
-   koth.admin:
+   kothsystem.admin:
       default: op
