@@ -28,7 +28,7 @@ class Loader extends PluginBase {
       
       $this->getServer()->getPluginManager()->registerEvents(new KothListener(), $this);
 
-        $this->getServer()->getCommandMap()->register("koth", new KothCommand());
+        $this->getServer()->getCommandMap()->register("Koth-System", new KothCommand());
    }
    
    protected function onDisable(): void {
