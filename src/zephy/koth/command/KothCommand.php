@@ -20,7 +20,7 @@ use pocketmine\plugin\Plugin;
 class KothCommand extends Command implements PluginOwned{
    public function __construct(){
       parent::__construct("koth", "Manage KothSystem");
-      $this->setPermission("koth.admin");
+      $this->setPermission("kothsystem.admin");
    }
    
    public function execute(CommandSender $sender, string $commandLabel, array $args) : void {
