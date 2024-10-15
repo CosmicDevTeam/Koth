@@ -9,29 +9,33 @@ use zephy\koth\events\KothEvents;
 use zephy\koth\listener\KothListener;
 use zephy\koth\command\KothCommand;
 use muqsit\invmenu\InvMenuHandler;
-class Loader extends PluginBase {
-  
+
+class Loader extends PluginBase
+{
+
    use SingletonTrait;
    const PREFIX = "§g(§6KOTH§g) §r";
-   protected function onEnable(): void {
+   protected function onEnable(): void
+   {
       self::setInstance($this);
       $this->saveResource("koths.json");
       $this->saveResource("effects.yml");
-     
-      if(!InvMenuHandler::isRegistered()){
+
+      if (!InvMenuHandler::isRegistered()) {
          InvMenuHandler::register($this);
       }
-     
+
       KothFactory::getInstance()->load();
-     
+
       KothEvents::getInstance()->loadEffects();
-      
+
       $this->getServer()->getPluginManager()->registerEvents(new KothListener(), $this);
 
-        $this->getServer()->getCommandMap()->register("Koth-System", new KothCommand());
+      $this->getServer()->getCommandMap()->register("KothSystem", new KothCommand());
    }
-   
-   protected function onDisable(): void {
+
+   protected function onDisable(): void
+   {
       KothFactory::getInstance()->save();
    }
 }
